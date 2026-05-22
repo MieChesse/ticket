@@ -42,9 +42,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 <div>
-                    <h3 class="text-sm font-bold text-blue-900">Bản Giả Lập Hệ Thống Gửi Ticket (Cập nhật link hướng dẫn & lược bỏ danh mục)</h3>
+                    <h3 class="text-sm font-bold text-blue-900">Bản Giả Lập Hệ Thống Gửi Ticket (Cập nhật khôi phục mục hướng dẫn)</h3>
                     <p class="text-xs text-blue-800 mt-1 leading-relaxed">
-                        Đã lược bỏ mục cấu hình hướng dẫn tự chọn. Khi bấm vào mục <strong>"Cài đặt Email trên thiết bị di động/dưới máy tính khách hàng"</strong> ở cột trái, bạn sẽ thấy banner chứa đường link hướng dẫn hữu ích được chèn ngay đầu biểu mẫu bên phải.
+                        Đã khôi phục lại mục <strong>"Hướng dẫn cấu hình và sử dụng dịch vụ Email"</strong> ở danh mục bên trái. Khi quý khách lựa chọn mục này, biểu mẫu bên phải sẽ yêu cầu cung cấp chi tiết tính năng cần hỗ trợ (như tạo tài khoản, tạo mailing list, tạo forward...) để kỹ thuật viên xử lý chính xác và chuẩn bị tài liệu phù hợp nhất.
                     </p>
                 </div>
             </div>
@@ -96,7 +96,11 @@
                             </svg>
                         </div>
                         <div class="mt-1 space-y-1">
-                            <!-- [ĐÃ BỎ] Mục "Hướng dẫn cấu hình và sử dụng dịch vụ Email" theo yêu cầu -->
+                            <!-- [ĐÃ THÊM LẠI] Mục "Hướng dẫn cấu hình và sử dụng dịch vụ Email" theo yêu cầu mới -->
+                            <label class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer transition select-none group border border-transparent" id="lbl_cau_hinh">
+                                <input type="radio" name="support_type" value="cau_hinh" onchange="switchForm('cau_hinh')" class="mt-1 text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition">Hướng dẫn cấu hình và sử dụng dịch vụ Email</span>
+                            </label>
 
                             <label class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer transition select-none group border border-transparent" id="lbl_bo_loc">
                                 <input type="radio" name="support_type" value="bo_loc" onchange="switchForm('bo_loc')" class="mt-1 text-blue-600 focus:ring-blue-500">
@@ -419,8 +423,8 @@
                                 <input type="text" id="di_chuyen_src_webmail" placeholder="Ví dụ: https://mail.nhacungcapcu.com" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none" required>
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-600 mb-1">Địa chỉ IP / Server IMAP cũ <span class="text-red-500">*</span></label>
-                                <input type="text" id="di_chuyen_src_imap" placeholder="Ví dụ: imap.nhacungcapcu.com" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none" required>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Địa chỉ IP / Server IMAP cũ (Không bắt buộc)</label>
+                                <input type="text" id="di_chuyen_src_imap" placeholder="Ví dụ: imap.nhacungcapcu.com" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none">
                             </div>
                         </div>
                     </div>
@@ -432,6 +436,46 @@
 
                     <div class="pt-4 border-t border-slate-200 flex justify-end">
                         <button type="submit" class="px-6 py-2.5 bg-[#0052cc] hover:bg-blue-700 text-white font-bold text-sm rounded-lg shadow transition-all">Gửi yêu cầu di chuyển</button>
+                    </div>
+                </form>
+            `,
+            cau_hinh: `
+                <!-- Form Header -->
+                <div class="bg-blue-50 border-b border-blue-100 px-6 py-4 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-base font-bold text-blue-900">Yêu cầu: Hướng dẫn cấu hình và sử dụng dịch vụ Email</h3>
+                        <p class="text-xs text-blue-700 mt-0.5">Chúng tôi hỗ trợ hướng dẫn quý khách làm quen và sử dụng các tính năng quản lý Email.</p>
+                    </div>
+                    <span class="text-[10px] bg-blue-600 text-white font-bold px-2 py-1 rounded">Mã dịch vụ: EMAIL_GUIDE</span>
+                </div>
+
+                <!-- Thân Form -->
+                <form id="frm_support_process" class="p-6 space-y-5" onsubmit="handleFormSubmit(event, 'cau_hinh')">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Số điện thoại liên hệ trực tiếp <span class="text-red-500">*</span></label>
+                            <input type="tel" id="cau_hinh_phone" placeholder="Nhập số điện thoại liên hệ" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none" required pattern="[0-9]{10,11}">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Tính năng cần hướng dẫn sử dụng <span class="text-red-500">*</span></label>
+                            <select id="cau_hinh_feature" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none" required>
+                                <option value="" disabled selected>-- Chọn tính năng cần hỗ trợ --</option>
+                                <option value="create_account">Khởi tạo tài khoản Email mới (Create Account)</option>
+                                <option value="mailing_list">Khởi tạo Mailing List (Nhóm gửi thư)</option>
+                                <option value="forward_setup">Khởi tạo chuyển tiếp thư (Forward Email)</option>
+                                <option value="webmail_use">Hướng dẫn sử dụng Webmail cơ bản</option>
+                                <option value="other">Các tính năng quản trị khác...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Mô tả cụ thể yêu cầu hướng dẫn <span class="text-red-500">*</span></label>
+                        <textarea id="cau_hinh_desc" rows="4" placeholder="Quý khách vui lòng nhập chi tiết tính năng muốn được hướng dẫn (Ví dụ: Tôi cần hướng dẫn tạo tài khoản mới cho nhân viên, tạo nhóm mailing list phòng kế toán để gửi nội bộ, hoặc tạo forward chuyển tiếp từ nhân viên cũ sang nhân viên mới...)" class="w-full p-3 bg-white border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-200 flex justify-end">
+                        <button type="submit" class="px-6 py-2.5 bg-[#0052cc] hover:bg-blue-700 text-white font-bold text-sm rounded-lg shadow transition-all">Gửi yêu cầu hướng dẫn</button>
                     </div>
                 </form>
             `,
@@ -606,7 +650,7 @@
             uploadedImage = null;
 
             // Xóa CSS active cũ của tất cả thẻ label bên trái
-            const allLabelIds = ['lbl_gui_nhan', 'lbl_loi_pc', 'lbl_di_chuyen', 'lbl_bo_loc', 'lbl_cai_dat_mobi', 'lbl_sao_luu'];
+            const allLabelIds = ['lbl_gui_nhan', 'lbl_loi_pc', 'lbl_di_chuyen', 'lbl_cau_hinh', 'lbl_bo_loc', 'lbl_cai_dat_mobi', 'lbl_sao_luu'];
             allLabelIds.forEach(id => {
                 const element = document.getElementById(id);
                 if (element) {
@@ -620,6 +664,7 @@
                 case 'gui_nhan': activeLabelId = 'lbl_gui_nhan'; break;
                 case 'loi_pc': activeLabelId = 'lbl_loi_pc'; break;
                 case 'di_chuyen': activeLabelId = 'lbl_di_chuyen'; break;
+                case 'cau_hinh': activeLabelId = 'lbl_cau_hinh'; break;
                 case 'bo_loc': activeLabelId = 'lbl_bo_loc'; break;
                 case 'cai_dat_mobi': activeLabelId = 'lbl_cai_dat_mobi'; break;
                 case 'sao_luu': activeLabelId = 'lbl_sao_luu'; break;
@@ -872,6 +917,10 @@
                 const qty = document.getElementById('di_chuyen_qty').value;
                 const successMsg = `Đã gửi yêu cầu di chuyển ${qty} tài khoản Email về Mắt Bão. Đội ngũ triển khai sẽ liên hệ qua số ${phone} để đối soát thông tin kết nối và thống nhất lịch chuyển dữ liệu tránh gián đoạn công việc của quý khách.`;
                 showNotificationModal('Đã tiếp nhận yêu cầu!', successMsg, 'success');
+            } else if (formType === 'cau_hinh') {
+                const phone = document.getElementById('cau_hinh_phone').value;
+                const successMsg = `Yêu cầu hướng dẫn cấu hình sử dụng đã được tiếp nhận thành công.\n\nChúng tôi đang xử lý yêu cầu và chuyên viên Mắt Bão sẽ chủ động liên hệ số ${phone} trong thời gian sớm nhất để gửi tài liệu hướng dẫn và hỗ trợ trực tiếp.`;
+                showNotificationModal('Đã tiếp nhận yêu cầu!', successMsg, 'success');
             } else if (formType === 'bo_loc') {
                 const phone = document.getElementById('bo_loc_phone').value;
                 const email = document.getElementById('bo_loc_email').value;
@@ -884,6 +933,7 @@
                 showNotificationModal('Đặt lịch cài đặt thành công!', successMsg, 'success');
             } else if (formType === 'sao_luu') {
                 const phone = document.getElementById('sao_luu_phone').value;
+                const email = document.getElementById('sao_luu_email').value;
                 const successMsg = `Đã nhận yêu cầu tư vấn và thiết lập giải pháp sao lưu Email. Chuyên viên sẽ liên hệ số điện thoại ${phone} trong giây lát để hướng dẫn chi tiết kịch bản xuất file lưu trữ hoặc backup tự động.`;
                 showNotificationModal('Đã tiếp nhận yêu cầu sao lưu!', successMsg, 'success');
             }
