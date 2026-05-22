@@ -42,10 +42,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 <div>
-                    <h3 class="text-sm font-bold text-blue-900">Bản Giả Lập Hệ Thống Gửi Ticket (Đã liên kết 2 cột)</h3>
+                    <h3 class="text-sm font-bold text-blue-900">Bản Giả Lập Hệ Thống Gửi Ticket (Cập nhật link hướng dẫn & lược bỏ danh mục)</h3>
                     <p class="text-xs text-blue-800 mt-1 leading-relaxed">
-                        Hãy click thử các lựa chọn yêu cầu ở <strong>Cột bên trái</strong> để kiểm tra sự thay đổi của <strong>Cột bên phải</strong> tương ứng. 
-                        Đặc biệt, lựa chọn <strong>"Kiểm tra và khắc phục lỗi gửi/nhận Email"</strong> đã được thiết lập các cơ chế bắt buộc điền chi tiết lỗi, thời gian và đính kèm hình ảnh để chống bỏ sót thông tin.
+                        Đã lược bỏ mục cấu hình hướng dẫn tự chọn. Khi bấm vào mục <strong>"Cài đặt Email trên thiết bị di động/dưới máy tính khách hàng"</strong> ở cột trái, bạn sẽ thấy banner chứa đường link hướng dẫn hữu ích được chèn ngay đầu biểu mẫu bên phải.
                     </p>
                 </div>
             </div>
@@ -74,6 +73,12 @@
                                 <input type="radio" name="support_type" value="gui_nhan" checked onchange="switchForm('gui_nhan')" class="mt-1 text-blue-600 focus:ring-blue-500">
                                 <span class="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition">Kiểm tra và khắc phục lỗi gửi/nhận Email</span>
                             </label>
+
+                            <!-- Mục phụ khắc phục lỗi máy tính -->
+                            <label class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer transition select-none group border border-transparent" id="lbl_loi_pc">
+                                <input type="radio" name="support_type" value="loi_pc" onchange="switchForm('loi_pc')" class="mt-1 text-blue-600 focus:ring-blue-500">
+                                <span class="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition">Khắc phục lỗi Email dưới máy tính</span>
+                            </label>
                             
                             <label class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer transition select-none group border border-transparent" id="lbl_di_chuyen">
                                 <input type="radio" name="support_type" value="di_chuyen" onchange="switchForm('di_chuyen')" class="mt-1 text-blue-600 focus:ring-blue-500">
@@ -91,10 +96,7 @@
                             </svg>
                         </div>
                         <div class="mt-1 space-y-1">
-                            <label class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer transition select-none group border border-transparent" id="lbl_cau_hinh">
-                                <input type="radio" name="support_type" value="cau_hinh" onchange="switchForm('cau_hinh')" class="mt-1 text-blue-600 focus:ring-blue-500">
-                                <span class="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition">Hướng dẫn cấu hình và sử dụng dịch vụ Email</span>
-                            </label>
+                            <!-- [ĐÃ BỎ] Mục "Hướng dẫn cấu hình và sử dụng dịch vụ Email" theo yêu cầu -->
 
                             <label class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 cursor-pointer transition select-none group border border-transparent" id="lbl_bo_loc">
                                 <input type="radio" name="support_type" value="bo_loc" onchange="switchForm('bo_loc')" class="mt-1 text-blue-600 focus:ring-blue-500">
@@ -123,7 +125,7 @@
         </div>
     </div>
 
-    <!-- Hộp thoại thông báo tùy chỉnh (Tránh dùng hàm alert() hệ thống gây chặn tương tác) -->
+    <!-- Hộp thoại thông báo tùy chỉnh -->
     <div id="customModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300" id="modalContent">
             <div class="text-center">
@@ -164,7 +166,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                     </svg>
                     <div>
-                        <strong>Yêu cầu bắt buộc:</strong> Để kiểm tra nguyên nhân nhanh hơn, quý khách vui lòng cung cấp đúng: <strong>Địa chỉ email lỗi, Email đối tác gửi/nhận cùng, Thời gian lỗi</strong> và <strong>Ảnh chụp màn hình lỗi</strong>.
+                        <strong>Yêu cầu bắt buộc:</strong> Để kiểm tra nguyên nhân nhanh hơn, quý khách vui lòng cung cấp đúng: <strong>Địa chỉ email lỗi, Email đối tác gửi/nhận cùng</strong> và <strong>Thời gian gửi/nhận</strong>.
                     </div>
                 </div>
 
@@ -209,7 +211,7 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-semibold text-slate-600 mb-1">Thời gian chính xác xảy ra lỗi <span class="text-red-500">*</span></label>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Thời gian gửi/nhận <span class="text-red-500">*</span></label>
                                 <input type="datetime-local" id="gui_nhan_time" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" required>
                             </div>
                             <div class="flex items-end pb-1.5">
@@ -241,9 +243,9 @@
                         </div>
                     </div>
 
-                    <!-- Khung kéo thả đính kèm ảnh lỗi (bắt buộc) -->
+                    <!-- Khung kéo thả đính kèm ảnh lỗi (Không còn bắt buộc) -->
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Ảnh chụp màn hình lỗi (Bắt buộc) <span class="text-red-500">*</span></label>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Ảnh chụp màn hình lỗi (Không bắt buộc)</label>
                         <div id="file_drop_zone" onclick="triggerFileInputElement()" class="border-2 border-dashed border-slate-300 hover:border-blue-500 rounded-xl p-4 text-center cursor-pointer bg-slate-50 hover:bg-blue-50/20 transition flex flex-col items-center justify-center min-h-[110px]">
                             <input type="file" id="gui_nhan_file" class="hidden" accept="image/*" onchange="handleImageSelection(event)">
                             
@@ -280,6 +282,112 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                             </svg>
                             Gửi yêu cầu hỗ trợ
+                        </button>
+                    </div>
+
+                </form>
+            `,
+            loi_pc: `
+                <!-- Form Header -->
+                <div class="bg-blue-50 border-b border-blue-100 px-6 py-4 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-base font-bold text-blue-900">Yêu cầu: Khắc phục lỗi Email dưới máy tính</h3>
+                        <p class="text-xs text-blue-700 mt-0.5">Hỗ trợ kiểm tra, sửa lỗi ứng dụng Outlook, Apple Mail, Thunderbird... qua điều khiển từ xa.</p>
+                    </div>
+                    <span class="text-[10px] bg-blue-600 text-white font-bold px-2 py-1 rounded">Mã dịch vụ: EMAIL_PC_ERR</span>
+                </div>
+
+                <!-- Banner cảnh báo thông tin -->
+                <div class="p-4 bg-amber-50/70 border-b border-amber-100 flex items-start gap-3 text-xs text-amber-800">
+                    <svg class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                    </svg>
+                    <div>
+                        <strong>Yêu cầu bắt buộc:</strong> Để kỹ thuật viên vào kiểm tra cấu hình lỗi Outlook/ứng dụng, quý khách vui lòng cung cấp đúng thông tin kết nối <strong>AnyDesk / UltraViewer</strong> và <strong>Ảnh chụp màn hình lỗi</strong>.
+                    </div>
+                </div>
+
+                <!-- Thân Form -->
+                <form id="frm_support_process" class="p-6 space-y-5" onsubmit="handleFormSubmit(event, 'loi_pc')">
+                    
+                    <!-- Phần số điện thoại & AnyDesk (BẮT BUỘC ĐIỀN) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Số điện thoại liên hệ trực tiếp <span class="text-red-500">*</span></label>
+                            <input type="tel" id="loi_pc_phone" placeholder="Nhập số điện thoại (ví dụ: 0901234567)" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required pattern="[0-9]{10,11}">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">AnyDesk / UltraViewer <span class="text-red-500">*</span></label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" id="loi_pc_remote_id" placeholder="ID (Mã của bạn)" class="w-full px-2.5 py-2 bg-white border border-slate-300 rounded-lg text-xs outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="text" id="loi_pc_remote_pass" placeholder="Mật mã" class="w-full px-2.5 py-2 bg-white border border-slate-300 rounded-lg text-xs outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email bị lỗi dưới máy tính -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Tài khoản Email bị lỗi trên ứng dụng <span class="text-red-500">*</span></label>
+                        <input type="email" id="loi_pc_my_email" placeholder="Ví dụ: user@yourdomain.com" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none" required>
+                    </div>
+
+                    <!-- Khung nhập mô tả hành vi lỗi dưới máy tính -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Mô tả chi tiết lỗi đang gặp phải <span class="text-red-500">*</span></label>
+                            <span class="text-[10px] text-slate-400" id="loi_pc_char_count">Tối thiểu 15 ký tự</span>
+                        </div>
+                        <div class="border border-slate-300 rounded-lg overflow-hidden">
+                            <div class="flex items-center gap-1.5 bg-slate-100 border-b border-slate-200 px-2 py-1 text-slate-500 text-xs">
+                                <button type="button" class="p-1 hover:bg-slate-200 rounded font-bold">B</button>
+                                <button type="button" class="p-1 hover:bg-slate-200 rounded italic">I</button>
+                                <button type="button" class="p-1 hover:bg-slate-200 rounded underline">U</button>
+                                <span class="text-slate-300">|</span>
+                                <span class="bg-white px-2 py-0.5 rounded border text-[10px]">Inter</span>
+                            </div>
+                            <textarea id="loi_pc_desc" rows="3" oninput="validateLoiPcDescriptionLength()" placeholder="Ví dụ: Phần mềm Outlook liên tục hỏi mật khẩu liên tục không kết nối được, hoặc không gửi được mail nhóm báo lỗi SMTP..." class="w-full p-3 text-sm outline-none resize-none" required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Khung kéo thả đính kèm ảnh lỗi (BẮT BUỘC ĐỐI VỚI LỖI PC) -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Ảnh chụp màn hình thông báo lỗi <span class="text-red-500">*</span></label>
+                        <div id="file_drop_zone" onclick="triggerFileInputElement()" class="border-2 border-dashed border-slate-300 hover:border-blue-500 rounded-xl p-4 text-center cursor-pointer bg-slate-50 hover:bg-blue-50/20 transition flex flex-col items-center justify-center min-h-[110px]">
+                            <input type="file" id="gui_nhan_file" class="hidden" accept="image/*" onchange="handleImageSelection(event)">
+                            
+                            <div id="upload_prompt" class="space-y-1">
+                                <svg class="w-7 h-7 text-slate-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="text-xs font-bold text-blue-600">Bấm để tải ảnh lỗi lên hoặc kéo thả ảnh vào đây</p>
+                                <p class="text-[10px] text-slate-400">Định dạng PNG, JPG, JPEG (Tối đa 4MB)</p>
+                            </div>
+
+                            <div id="upload_preview_container" class="hidden w-full relative">
+                                <img id="upload_preview_img" src="" class="max-h-20 mx-auto rounded border shadow-sm">
+                                <button type="button" onclick="clearSelectedImage(event)" class="absolute -top-2 right-1/2 translate-x-12 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition shadow">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                                <p id="upload_file_name" class="text-[10px] text-slate-500 mt-1 truncate max-w-xs mx-auto"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phần gửi đi -->
+                    <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <span class="text-[11px] text-slate-400 flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            Kỹ thuật kết nối xử lý ngay từ 10 - 15 phút
+                        </span>
+                        <button type="submit" class="w-full sm:w-auto px-6 py-2.5 bg-[#0052cc] hover:bg-blue-700 text-white font-bold text-sm rounded-lg shadow transition-all flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                            Gửi yêu cầu sửa lỗi Outlook
                         </button>
                     </div>
 
@@ -324,41 +432,6 @@
 
                     <div class="pt-4 border-t border-slate-200 flex justify-end">
                         <button type="submit" class="px-6 py-2.5 bg-[#0052cc] hover:bg-blue-700 text-white font-bold text-sm rounded-lg shadow transition-all">Gửi yêu cầu di chuyển</button>
-                    </div>
-                </form>
-            `,
-            cau_hinh: `
-                <div class="bg-blue-50 border-b border-blue-100 px-6 py-4">
-                    <h3 class="text-base font-bold text-blue-900">Yêu cầu: Hướng dẫn cấu hình và sử dụng dịch vụ Email</h3>
-                    <p class="text-xs text-blue-700 mt-0.5">Chúng tôi sẽ cung cấp tài liệu hướng dẫn cấu hình chi tiết theo nhu cầu sử dụng của bạn.</p>
-                </div>
-
-                <form id="frm_support_process" class="p-6 space-y-5" onsubmit="handleFormSubmit(event, 'cau_hinh')">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Số điện thoại liên hệ trực tiếp <span class="text-red-500">*</span></label>
-                            <input type="tel" id="cau_hinh_phone" placeholder="Nhập số điện thoại liên hệ" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Hệ điều hành / Ứng dụng quý khách sử dụng <span class="text-red-500">*</span></label>
-                            <select id="cau_hinh_app" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none" required>
-                                <option value="" disabled selected>-- Chọn thiết bị / phần mềm --</option>
-                                <option value="outlook">Microsoft Outlook (Máy tính PC/Mac)</option>
-                                <option value="iphone">Mail mặc định trên iPhone/iPad (iOS)</option>
-                                <option value="android">Gmail / Mail mặc định trên Samsung/Android</option>
-                                <option value="thunderbird">Mozilla Thunderbird</option>
-                                <option value="other">Thiết bị hoặc phần mềm khác</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Yêu cầu hướng dẫn chi tiết <span class="text-red-500">*</span></label>
-                        <textarea id="cau_hinh_desc" rows="4" placeholder="Quý khách vui lòng nhập câu hỏi hoặc yêu cầu hướng dẫn cụ thể (ví dụ: cần tài liệu cấu hình SMTP gửi hóa đơn điện tử tự động, hoặc cấu hình đồng bộ danh bạ...)" class="w-full p-3 bg-white border border-slate-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-200 flex justify-end">
-                        <button type="submit" class="px-6 py-2.5 bg-[#0052cc] hover:bg-blue-700 text-white font-bold text-sm rounded-lg shadow transition-all">Nhận hướng dẫn ngay</button>
                     </div>
                 </form>
             `,
@@ -416,6 +489,17 @@
                 <div class="bg-blue-50 border-b border-blue-100 px-6 py-4">
                     <h3 class="text-base font-bold text-blue-900">Yêu cầu: Cài đặt Email trên thiết bị di động/dưới máy tính khách hàng</h3>
                     <p class="text-xs text-blue-700 mt-0.5">Đặt lịch hẹn hỗ trợ kỹ thuật cài đặt trực tiếp qua điều khiển máy tính từ xa (UltraViewer/AnyDesk) hoặc hướng dẫn trực tiếp qua cuộc gọi.</p>
+                </div>
+
+                <!-- Link liên kết hướng dẫn tự động bổ sung -->
+                <div class="p-4 bg-emerald-50 border-b border-emerald-100 flex items-start gap-3 text-xs text-emerald-800">
+                    <svg class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div>
+                        Quý Khách có thể chủ động tham khảo bài viết hướng dẫn cấu hình chi tiết, cài đặt mail vào Outlook trên máy tính (PC), thiết bị iOS (iPhone, iPad), Android một cách dễ dàng tại đây: 
+                        <a href="https://help.matbao.support/" target="_blank" class="text-blue-600 font-bold underline hover:text-blue-800 inline-block mt-1">https://help.matbao.support/</a>
+                    </div>
                 </div>
 
                 <form id="frm_support_process" class="p-6 space-y-5" onsubmit="handleFormSubmit(event, 'cai_dat_mobi')">
@@ -522,7 +606,7 @@
             uploadedImage = null;
 
             // Xóa CSS active cũ của tất cả thẻ label bên trái
-            const allLabelIds = ['lbl_gui_nhan', 'lbl_di_chuyen', 'lbl_cau_hinh', 'lbl_bo_loc', 'lbl_cai_dat_mobi', 'lbl_sao_luu'];
+            const allLabelIds = ['lbl_gui_nhan', 'lbl_loi_pc', 'lbl_di_chuyen', 'lbl_bo_loc', 'lbl_cai_dat_mobi', 'lbl_sao_luu'];
             allLabelIds.forEach(id => {
                 const element = document.getElementById(id);
                 if (element) {
@@ -534,8 +618,8 @@
             let activeLabelId = '';
             switch(formKey) {
                 case 'gui_nhan': activeLabelId = 'lbl_gui_nhan'; break;
+                case 'loi_pc': activeLabelId = 'lbl_loi_pc'; break;
                 case 'di_chuyen': activeLabelId = 'lbl_di_chuyen'; break;
-                case 'cau_hinh': activeLabelId = 'lbl_cau_hinh'; break;
                 case 'bo_loc': activeLabelId = 'lbl_bo_loc'; break;
                 case 'cai_dat_mobi': activeLabelId = 'lbl_cai_dat_mobi'; break;
                 case 'sao_luu': activeLabelId = 'lbl_sao_luu'; break;
@@ -548,8 +632,8 @@
                 if (radioInput) radioInput.checked = true;
             }
 
-            // Liên kết lại các trình lắng nghe kéo thả tệp nếu đó là form lỗi "gui_nhan"
-            if (formKey === 'gui_nhan') {
+            // Liên kết lại các trình lắng nghe kéo thả tệp nếu đó là form lỗi cần ảnh chụp
+            if (formKey === 'gui_nhan' || formKey === 'loi_pc') {
                 bindDragAndDropEvents();
             }
         }
@@ -566,7 +650,7 @@
             document.getElementById(inputId).value = `${year}-${month}-${day}T${hours}:${minutes}`;
         }
 
-        // Đếm độ dài mô tả để yêu cầu tối thiểu 15 ký tự tránh ghi hời hợt
+        // Đếm độ dài mô tả để yêu cầu tối thiểu 15 ký tự tránh ghi hời hợt (Form Gửi/Nhận)
         function validateDescriptionLength() {
             const descInput = document.getElementById('gui_nhan_desc');
             const counter = document.getElementById('gui_nhan_char_count');
@@ -582,11 +666,25 @@
             }
         }
 
+        // Đếm độ dài mô tả để yêu cầu tối thiểu 15 ký tự (Form Lỗi PC)
+        function validateLoiPcDescriptionLength() {
+            const descInput = document.getElementById('loi_pc_desc');
+            const counter = document.getElementById('loi_pc_char_count');
+            if(!descInput || !counter) return;
+
+            const textLength = descInput.value.length;
+            if (textLength < 15) {
+                counter.textContent = `Thiếu ${15 - textLength} ký tự nữa`;
+                counter.className = "text-[10px] text-red-500 font-bold";
+            } else {
+                counter.textContent = `Độ dài hợp lệ (${textLength} ký tự)`;
+                counter.className = "text-[10px] text-emerald-500 font-bold";
+            }
+        }
+
         // Kích hoạt hộp thoại mở tệp hệ thống ẩn
         function triggerFileInputElement() {
-            if (!uploadedImage) {
-                document.getElementById('gui_nhan_file').click();
-            }
+            document.getElementById('gui_nhan_file').click();
         }
 
         // Xử lý tệp tải lên (Giới hạn kích thước tệp tối đa 4MB)
@@ -645,6 +743,7 @@
             });
 
             dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
                 const dt = e.dataTransfer;
                 const files = dt.files;
                 if(files.length > 0) {
@@ -723,33 +822,56 @@
                     return;
                 }
 
-                // Ràng buộc 2: Bắt buộc đính kèm ảnh lỗi (Trọng tâm khắc phục tình trạng gửi thiếu ảnh)
-                if (!uploadedImage) {
+                // Đối với form gửi nhận: Ảnh chụp màn hình bây giờ là Không bắt buộc (Bỏ qua kiểm tra đính kèm)
+                const successMsg = `Chúng tôi đã nhận được thông tin kiểm tra lỗi email của quý khách:\n\n` +
+                                   `• Tài khoản lỗi: ${myEmail}\n` +
+                                   `• Liên quan tới đối tác: ${partnerEmail}\n` +
+                                   `• Thời điểm gửi/nhận: ${time.replace('T', ' ')}\n` +
+                                   `• Trạng thái đính kèm ảnh: ${uploadedImage ? 'Đã tải lên' : 'Không đính kèm'}\n\n` +
+                                   `Kỹ thuật viên Mắt Bão đang tiến hành lọc Log Mail Server. Chúng tôi sẽ gọi lại cho quý khách qua số ${phone} trong vòng 15 phút tới.`;
+                
+                showNotificationModal('Gửi Yêu Cầu Thành Công!', successMsg, 'success');
+
+            } else if (formType === 'loi_pc') {
+                const phone = document.getElementById('loi_pc_phone').value;
+                const remoteId = document.getElementById('loi_pc_remote_id').value;
+                const remotePass = document.getElementById('loi_pc_remote_pass').value;
+                const myEmail = document.getElementById('loi_pc_my_email').value;
+                const desc = document.getElementById('loi_pc_desc').value;
+
+                // Ràng buộc 1: Độ dài mô tả tối thiểu 15 ký tự
+                if (desc.trim().length < 15) {
                     showNotificationModal(
-                        'Thiếu ảnh chụp màn hình',
-                        'Mắt Bão bắt buộc khách hàng phải đính kèm ảnh chụp màn hình thông báo lỗi để tiến hành lọc Log Mail. Quý khách vui lòng đính kèm ảnh.',
+                        'Nội dung mô tả lỗi quá ngắn',
+                        'Vui lòng nhập chi tiết lỗi đang gặp phải dưới máy tính để tổ hỗ trợ xử lý nhanh nhất.',
                         'error'
                     );
                     return;
                 }
 
-                const successMsg = `Chúng tôi đã nhận được thông tin kiểm tra lỗi email của quý khách:\n\n` +
+                // Ràng buộc 2: BẮT BUỘC ĐÍNH KÈM ẢNH ĐỐI VỚI LỖI PC
+                if (!uploadedImage) {
+                    showNotificationModal(
+                        'Thiếu ảnh chụp lỗi Outlook',
+                        'Đối với lỗi phần mềm Mail dưới máy tính, Mắt Bão bắt buộc quý khách phải chụp lại màn hình cảnh báo lỗi để kỹ thuật viên chuẩn bị trước giải pháp trước khi kết nối từ xa.',
+                        'error'
+                    );
+                    return;
+                }
+
+                const successMsg = `Yêu cầu khắc phục lỗi Email máy tính đã được tiếp nhận thành công:\n\n` +
                                    `• Tài khoản lỗi: ${myEmail}\n` +
-                                   `• Liên quan tới đối tác: ${partnerEmail}\n` +
-                                   `• Thời điểm xảy ra: ${time.replace('T', ' ')}\n` +
+                                   `• ID kết nối (UltraViewer/AnyDesk): ${remoteId}\n` +
                                    `• Đã đính kèm ảnh chụp lỗi thành công.\n\n` +
-                                   `Kỹ thuật viên Mắt Bão đang tiến hành lọc Log Mail Server. Chúng tôi sẽ gọi lại cho quý khách qua số ${phone} trong vòng 15 phút tới.`;
+                                   `Kỹ thuật viên sẽ chủ động liên hệ số ${phone} để trao đổi trực tiếp và truy cập kết nối xử lý từ xa cho quý khách.`;
                 
                 showNotificationModal('Gửi Yêu Cầu Thành Công!', successMsg, 'success');
+
             } else if (formType === 'di_chuyen') {
                 const phone = document.getElementById('di_chuyen_phone').value;
                 const qty = document.getElementById('di_chuyen_qty').value;
                 const successMsg = `Đã gửi yêu cầu di chuyển ${qty} tài khoản Email về Mắt Bão. Đội ngũ triển khai sẽ liên hệ qua số ${phone} để đối soát thông tin kết nối và thống nhất lịch chuyển dữ liệu tránh gián đoạn công việc của quý khách.`;
                 showNotificationModal('Đã tiếp nhận yêu cầu!', successMsg, 'success');
-            } else if (formType === 'cau_hinh') {
-                const phone = document.getElementById('cau_hinh_phone').value;
-                const successMsg = `Yêu cầu hướng dẫn sử dụng đã được ghi nhận. Tài liệu hướng dẫn chi tiết đang được gửi tự động qua email của bạn. Kỹ thuật viên sẽ gọi lại số ${phone} nếu bạn cần trợ giúp cấu hình trực tiếp.`;
-                showNotificationModal('Đang gửi hướng dẫn!', successMsg, 'success');
             } else if (formType === 'bo_loc') {
                 const phone = document.getElementById('bo_loc_phone').value;
                 const email = document.getElementById('bo_loc_email').value;
